@@ -3,7 +3,7 @@ from . import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="langapp/index.html")), # 단어 전체목록
+    path('', TemplateView.as_view(template_name="langapp/index.html"), name='index'), # 단어 전체목록
     path('list/', views.vocab_list, name = 'vocab_list'),  # 단어 전체 목록
     path('list/<int:pk>/', views.vocab_detail, name = 'vocab_detail'),  # 개별 단어 상세 조회
     path('post/', views.vocab_post, name='vocab_post'),  # 단어 등록
