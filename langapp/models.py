@@ -21,7 +21,7 @@ class Vocab(models.Model):
 
 
     word_ko = models.CharField(max_length=100, verbose_name = "Meaning")  # 한국어 단어
-    word_fo = models.CharField(max_length=100, blank=True, verbose_name="Voacab")  # 외국어 단어(번역한것)
+    word_fo = models.CharField(max_length=100, blank=True, verbose_name="Vocab")  # 외국어 단어(번역한것)
     language = models.CharField(max_length=10, choices=Language.choices, default=Language.ENGLISH, verbose_name="Language")
     sentence = models.TextField(blank=True, verbose_name="Sentence") # 예문
     created = models.DateTimeField(auto_now_add=True)

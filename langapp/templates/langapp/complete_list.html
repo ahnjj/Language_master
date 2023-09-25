@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+{% extends "langapp/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,15 +13,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
+<div class="container"> -->
     <h1>Complete List</h1>
     <p>
-        <a href="{% url 'vocab_list' %}" class="btn btn-primary">Go Home</a>
+        <a href="{% url 'vocab_test' %}" class="btn btn-danger">Test!</a>
     </p>
     <ul class="list-group">
         {% for complete in completes %}
         <li class="list-group-item">
-            <a href="{% url 'vocab_detail' pk=complete.pk %}">{{ complete.word_ko }} {{ complete.word_en }} </a>
+            <a href="{% url 'vocab_detail' pk=complete.pk %}" class="text-dark text-decoration-none">{{ complete.word_ko }} {{ complete.word_fo }} </a>
             {% if complete.important %}
                 <span class="badge text-bg-danger">!</span>
             {% endif %}
@@ -28,7 +33,8 @@
         </li>
         {% endfor %}
     </ul>
-</div>
+    {% endblock %}
+<!-- </div>
     
 </body>
-</html>
+</html> -->

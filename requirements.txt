@@ -1,26 +1,31 @@
-# coding: utf-8
-
-# 오디오 재생을 위함
-pygame==2.5.0
-
-# 장고 웹프레임워크
-django==4.2.1
-
-# 파이썬에서 보다 손쉬운 환경변수 처리
-python-dotenv==1.0.0
-
-# 장고 내에서 보다 손쉬운 환경변수 처리 (python-dotenv에 더해, 장고 친화적인 기능 지원)
-django-environ==0.10.0
-
-# openai api 사용을 위한 라이브러리
-openai==0.27.7
-
-# 장고 내에서 보다 손쉬운 bootstrap5 사용을 위한 라이브러리
-django-bootstrap5==23.1
-
-# HTTP 요청 및 HTML 파서 라이브러리
-requests
-beautifulsoup4
-
-# 구글번역 크롤링을 통한 음성 생성 라이브러리
-gTTS==2.3.2
+aiohttp==3.8.5
+aiosignal==1.3.1
+asgiref==3.7.2
+async-timeout==4.0.3
+attrs==23.1.0
+beautifulsoup4==4.12.2
+certifi==2023.7.22
+charset-normalizer==3.2.0
+click==8.1.7
+dj-database-url==2.1.0    # 헤로쿠 db(postgresql)사용을 위한 패키지
+Django==4.2.5
+django-bootstrap5==23.1  # 장고 내에서 보다 손쉬운 bootstrap5 사용을 위한 라이브러리
+django-environ==0.10.0  # 장고 내에서 보다 손쉬운 환경변수 처리 (python-dotenv에 더해, 장고 친화적인 기능 지원)
+frozenlist==1.4.0
+gTTS==2.3.2              # 구글번역 크롤링을 통한 음성 생성 라이브러리
+gunicorn==21.2.0         # 프로젝트가 서버에서 계속 구동되도록 도와주는 서버 엔진 관련 패키지
+idna==3.4
+multidict==6.0.4
+openai==0.28.0
+packaging==23.1
+psycopg2-binary==2.9.7   # 헤로쿠 db(postgresql)사용을 위한 패키지
+pygame==2.5.0            # 오디오 재생을 위함
+python-dotenv==1.0.0     # 파이썬에서 보다 손쉬운 환경변수 처리
+requests==2.31.0         # HTTP 요청 및 HTML 파서 라이브러리
+soupsieve==2.5
+sqlparse==0.4.4
+tqdm==4.66.1
+typing_extensions==4.8.0
+urllib3==2.0.5
+whitenoise==6.5.0       # 정적 파일들의 사용 도와주는 미들웨어 패키지
+yarl==1.9.2

@@ -1,9 +1,12 @@
 from django.urls import path
 from . import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    # path('', TemplateView.as_view(template_name="langapp/vocab_list.html"),name = 'vocab_list'), # 단어 전체목록
     path('', views.vocab_list, name = 'vocab_list'),  # 단어 전체 목록
     path('<int:pk>/', views.vocab_detail, name = 'vocab_detail'),  # 개별 단어 상세 조회
+    # path('post/', TemplateView.as_view(template_name="langapp/vocab_post.html")), # 단어 등록
     path('post/', views.vocab_post, name='vocab_post'),  # 단어 등록
     path('<int:pk>/edit/',views.vocab_edit, name = 'vocab_edit'),  # 수정
     path('complete/', views.complete_list, name='complete_list'),  # 완료 목록

@@ -1,4 +1,30 @@
-<!DOCTYPE html>
+{% extends "langapp/base.html" %}
+    {% block content %}
+    <h1>Vocab list</h1>
+    <p>
+        <a href="{% url 'vocab_post' %}" class ="text-muted text-decoration-none"><i class="bi bi-plus">Add Vocab</i></a>
+        <a href="{% url 'complete_list' %}" class="btn btn-secondary" style="float: right">Completed List</a>
+    </p>
+    <br>
+    <ul class="list-group">
+        {% for vocab in vocabs %}
+        <li class="list-group-item">
+            <a href="{% url 'vocab_detail' pk=vocab.pk %}" class="text-dark text-decoration-none" >{{ vocab.word_ko }} </a>
+            {% if vocab.important %}
+                <span class="badge text-bg-danger">!</span>
+            {% endif %}
+            <div style="float: right">
+                <a href="{% url 'completed' pk=vocab.pk %}" class="btn btn-success">Completed</a>
+                <a href="{% url 'vocab_edit' pk=vocab.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'vocab_destroy' pk=vocab.pk %}" class="btn btn-danger">Delete</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,4 +57,5 @@
     </ul>
 </div>
 </body>
-</html>
+</html> -->
+
