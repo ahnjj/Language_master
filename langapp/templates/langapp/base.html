@@ -1,35 +1,44 @@
 {# langapp/templates/langapp/base.html #}
 
 {% load django_bootstrap5 %}
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>Language Master</title>
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    {% block extra-css %}{% endblock %}
+      <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+       <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/style.css" rel="stylesheet" />
 </head>
+    {% bootstrap_css %}
+    <!-- {% block extra-css %}{% endblock %} -->
 <body>
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="{% url 'vocab_list' %}"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-               <span class="fs-4">Let's master new languages!</span>
-            </a>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a href="{% url 'vocab_list' %}" class="nav-link active">Go to Vocab list</a>
-                </li>
-            </ul>
-        </header>
-    </div>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container px-5 py-3 mb-4 border-bottom">
+                <a class="navbar-brand" href="{% url 'vocab_list' %}"><span class="fw-bolder text-Secondary">LangMaster</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'vocab_list' %}">단어장</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'complete_list' %}">암기완료된 단어</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">단어시험</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <!-- 여기에 각 페이지가 들어간다. -->
     <div class="container">
         {% bootstrap_messages %}
-
         {% block content %}{% endblock %}
 
         <footer class="pt-4 my-md-5 pt-md-5 border-top">

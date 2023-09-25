@@ -4,7 +4,7 @@
 {% block content %}
     <h1>Complete List</h1>
     <p>
-        <a href="{% url 'vocab_test' %}" class="btn btn-danger">Test!</a>
+        <a href="{% url 'vocab_list' %}" class="btn btn-danger">Test!</a>
     </p>
     <ul class="list-group">
         {% for complete in completes %}
@@ -14,8 +14,8 @@
                 <span class="badge text-bg-danger">!</span>
             {% endif %}
             <div style="float: right">
-                <a href="{% url 'uncompleted' pk=complete.pk %}" class="btn btn-success">Uncomplete</a> 
-                <a href="{% url 'vocab_edit' pk=complete.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'uncompleted' pk=complete.pk %}" class="btn btn-outline-info">Uncomplete</a> 
+                <a href="{% url 'vocab_edit' pk=complete.pk %}" class="btn btn-outline-secondary">Edit</a>
                 <a href="{% url 'vocab_destroy' pk=complete.pk %}" class="btn btn-danger">Delete</a>
             </div>  
         </li>

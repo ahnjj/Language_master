@@ -14,8 +14,8 @@
                 <span class="badge text-bg-danger">!</span>
             {% endif %}
             <div style="float: right">
-                <a href="{% url 'completed' pk=vocab.pk %}" class="btn btn-success">Completed</a>
-                <a href="{% url 'vocab_edit' pk=vocab.pk %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'completed' pk=vocab.pk %}" class="btn btn-info">Completed</a>
+                <a href="{% url 'vocab_edit' pk=vocab.pk %}" class="btn btn-outline-secondary">Edit</a>
                 <a href="{% url 'vocab_destroy' pk=vocab.pk %}" class="btn btn-danger">Delete</a>
             </div>
         </li>
