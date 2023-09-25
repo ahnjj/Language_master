@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "langapp",
     "django_bootstrap5",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "users",
 ]
 TIME_ZONE = 'Asia/Seoul'
 MIDDLEWARE = [
@@ -110,6 +113,12 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 
 # Internationalization

@@ -1,17 +1,21 @@
 from django.shortcuts import render, redirect
 
 from langapp.forms import VocabForm
+from users import permissions
 from .models import Vocab
+from .permissions import CustomReadOnly     # 권한 추가
 
 # 단어 전체 조회 뷰
 def vocab_list(request):
     vocabs = Vocab.objects.filter(complete=False)
+    permission_classes = [CustomReadOnly]     # 권한 추가 부분
     return render(request, 'langapp/vocab_list.html',{'vocabs' : vocabs})
 
 
 # 각 단어 상세 조회 뷰
 def vocab_detail(request, pk):
     vocab = Vocab.objects.get(id=pk)
+    permission_classes = [CustomReadOnly]     # 권한 추가 부분
     return render(request, 'langapp/vocab_detail.html', {'vocab':vocab})
 
 
@@ -19,6 +23,7 @@ def vocab_detail(request, pk):
 def vocab_post(request):
     if request.method == "POST":
         form = VocabForm(request.POST)
+        permission_classes = [CustomReadOnly]     # 권한 추가 부분
         if form.is_valid():
             vocab = form.save(commit=False)
             vocab.save()
@@ -31,6 +36,7 @@ def vocab_post(request):
 # 수정 뷰
 def vocab_edit(request, pk):
     vocab = Vocab.objects.get(id=pk)
+    permission_classes = [CustomReadOnly]     # 권한 추가 부분
     if request.method == "POST":
         form = VocabForm(request.POST, instance=vocab)
         if form.is_valid():
@@ -45,6 +51,7 @@ def vocab_edit(request, pk):
 # 암기 완료 단어 목록
 def complete_list(request):
     completes = Vocab.objects.filter(complete=True)
+    permission_classes = [CustomReadOnly]     # 권한 추가 부분
     return render(request, 'langapp/complete_list.html', {'completes':completes})
 
 
